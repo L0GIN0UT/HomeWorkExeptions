@@ -25,4 +25,8 @@ public class Presenter {
         view.printAnswer(answer);
     }
 
+    public void saveBook(String filename) {
+        service.saveBook(filename);
+    }
+
 }

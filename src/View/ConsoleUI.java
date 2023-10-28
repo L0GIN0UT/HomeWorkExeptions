@@ -25,7 +25,7 @@ public class ConsoleUI implements View {
     @Override
     public void start() throws FamiliaExeption, OtchestvoExeption, DateExeption, NameExeption, PhoneNumberExeption, ConsoleExeption, GenderExeption {
         System.out.println("Hello: ");
-        while (flag) {
+//        while (flag) {
             System.out.println(menu.menu());
             String line = scanner.nextLine();
             try {
@@ -34,7 +34,7 @@ public class ConsoleUI implements View {
             } catch (NumberFormatException e) {
                 throw new ConsoleExeption("Вы ввели не число!");
             }
-        }
+//        }
     }
 
     public void finish() {
@@ -42,7 +42,8 @@ public class ConsoleUI implements View {
     }
 
     public void addHuman() throws DateExeption, NameExeption, FamiliaExeption, OtchestvoExeption, PhoneNumberExeption, GenderExeption {
-        System.out.println("Укажите Фамилию человека");String familia1 = scanner.nextLine();String familia = checkFamilia(familia1);
+        System.out.println("Укажите Фамилию человека");
+        String familia1 = scanner.nextLine();String familia = checkFamilia(familia1);
         System.out.println("Укажите Имя человека");
         String name1 = scanner.nextLine();
         String name = checkName(name1);
@@ -54,11 +55,12 @@ public class ConsoleUI implements View {
         LocalDate bornDate = checkDate(bornDate1);
         System.out.println("Укажите Телефон человека \nПример: 81231231212 или 123456");
         String phoneNumber1 = scanner.nextLine();
-        long phonrNumber = checkPhoneNumber(phoneNumber1);
-        System.out.println("Укажите Пол человека (М или Ж)");
+        long phoneNumber = checkPhoneNumber(phoneNumber1);
+        System.out.println("Укажите Пол человека (M or F)");
         String gender1 = scanner.nextLine();
         Gender gender = checkGender(gender1);
-        presenter.addPerson(familia,name,otchestvo,bornDate,phonrNumber,gender);
+        presenter.addPerson(familia,name,otchestvo,bornDate,phoneNumber,gender);
+        saveBook(familia+" "+name+" "+otchestvo+" "+bornDate+" "+phoneNumber);
     }
 
     private String checkFamilia(String str) throws FamiliaExeption {
@@ -87,6 +89,10 @@ public class ConsoleUI implements View {
 
     public void getPersonList(){
         presenter.getPersonList();;
+    }
+
+    public void saveBook(String filename) {
+        presenter.saveBook(filename);
     }
 
     @Override

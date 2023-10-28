@@ -1,12 +1,14 @@
 package Model.phoneBook;
 
 import Model.obj.Person;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 
-public class PhoneBook implements Iterable<Person> {
+public class PhoneBook implements Iterable<Person>, Serializable {
     private  long personId;
     private List<Person> personList;
 

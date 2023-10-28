@@ -30,25 +30,4 @@ public class CheckDate {
         }
     }
 
-    //if(familia == null) {
-//            throw new FamiliaExeption("Вы не ввели Фамилию! ", null);
-//        }
-//        else if(familia.length() < 2){
-//            throw new FamiliaExeption("Некорректная длина Фамилии (< 2) ", familia);
-//        }
-//        else if(name == null) {
-//            throw new NameExeption("Вы не ввели Имя! ", null);
-//        }
-//        else if(name.length() < 2){
-//            throw new NameExeption("Некорректная длина Имени (< 2) ", name);
-//        }
-//        else if(otchestvo == null) {
-//            throw new OtchestvoExeption("Вы не ввели Отчество! ", null);
-//        }
-//        else if(otchestvo.length() < 5){
-//            throw new OtchestvoExeption("Некорректная длина Отчества (< 5) ", otchestvo);
-//        }
-
-
-
 }

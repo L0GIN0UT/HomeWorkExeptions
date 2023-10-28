@@ -9,9 +9,9 @@ public class CheckGender {
     public static Gender checkGender(String str) throws GenderExeption {
         String gender = str.toUpperCase();
         if(!gender.isEmpty()){
-            if (gender.equals("М")) {
+            if (gender.equals("M")) {
                 return Gender.MALE;
-            } else if (gender.equals("Ж")) {
+            } else if (gender.equals("F")) {
                 return Gender.FEMALE;
             } else {
                 throw new GenderExeption("Некорректный Пол " + str);

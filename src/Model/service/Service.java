@@ -1,6 +1,7 @@
 package Model.service;
 
 import Model.builder.MyPersonBuilder;
+import Model.fileHandler.FileHandler;
 import View.Checks.exeptions.NameExeption;
 import Model.obj.Gender;
 import Model.obj.Person;
@@ -32,4 +33,10 @@ public class Service {
         }
         return sb.toString();
     }
+
+    public void saveBook(String filename) {
+        FileHandler fh = new FileHandler();
+        fh.save(phoneBook,filename + ".txt");
+    }
+
 }
