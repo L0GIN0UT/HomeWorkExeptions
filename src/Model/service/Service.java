@@ -2,8 +2,8 @@ package Model.service;
 
 import Model.builder.MyPersonBuilder;
 import Model.fileHandler.FileHandler;
-import View.Checks.exeptions.FileNameExeption;
-import View.Checks.exeptions.NameExeption;
+import View.Checks.exeptions.FileNameDownloadExeption;
+import View.Checks.exeptions.FileNameUploadExeption;
 import Model.obj.Gender;
 import Model.obj.Person;
 import Model.phoneBook.PhoneBook;
@@ -40,9 +40,9 @@ public class Service {
         fh.save(phoneBook,filename + ".txt");
     }
 
-    public void readBook(String filename) throws FileNameExeption {
+    public void readBook(String filename) throws  FileNameDownloadExeption {
         FileHandler fh = new FileHandler();
-        phoneBook = (PhoneBook) fh.read(filename+".txt");
+        phoneBook = (PhoneBook) fh.read(filename);
     }
 
 }

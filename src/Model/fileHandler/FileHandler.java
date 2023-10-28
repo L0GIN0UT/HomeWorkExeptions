@@ -1,6 +1,7 @@
 package Model.fileHandler;
 
-import View.Checks.exeptions.FileNameExeption;
+import View.Checks.exeptions.FileNameDownloadExeption;
+import View.Checks.exeptions.FileNameUploadExeption;
 
 import java.io.*;
 
@@ -17,10 +18,10 @@ public class FileHandler {
         }
     }
 
-    public Object read(String path) throws FileNameExeption {
+    public Object read(String path) {
         try{ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
             return ois.readObject();
-        } catch (Exception i){
+        } catch (IOException | ClassNotFoundException i){
             return null;
         }
     }

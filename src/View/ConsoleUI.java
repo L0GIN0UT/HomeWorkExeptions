@@ -23,7 +23,7 @@ public class ConsoleUI implements View {
     }
 
     @Override
-    public void start() throws FamiliaExeption, OtchestvoExeption, DateExeption, NameExeption, PhoneNumberExeption, ConsoleExeption, GenderExeption, FileNameExeption, FileNameUploadExeption {
+    public void start() throws FamiliaExeption, OtchestvoExeption, DateExeption, NameExeption, PhoneNumberExeption, ConsoleExeption, GenderExeption, FileNameDownloadExeption, FileNameUploadExeption {
         System.out.println("Hello: ");
         while (flag) {
             System.out.println(menu.menu());
@@ -63,7 +63,7 @@ public class ConsoleUI implements View {
         presenter.addPerson(familia,name,otchestvo,bornDate,phoneNumber,gender);
     }
 
-    public void downloadBook() throws FileNameExeption {
+    public void downloadBook() throws FileNameDownloadExeption {
         System.out.println("Укажите Имя файла");
         String filename1 = scanner.nextLine();
         String filename = checkFileName(filename1);
@@ -81,8 +81,8 @@ public class ConsoleUI implements View {
         return CheckFileNameUpload.checkFileName(filename);
     }
 
-    private String checkFileName(String filename) throws FileNameExeption {
-        return CheckFileName.checkFileName(filename);
+    private String checkFileName(String filename) throws FileNameDownloadExeption {
+        return CheckFileDownloadName.checkFileName(filename);
     }
 
     private String checkFamilia(String str) throws FamiliaExeption {
@@ -117,7 +117,7 @@ public class ConsoleUI implements View {
         presenter.saveBook(filename);
     }
 
-    public void readBook(String filename) throws FileNameExeption {
+    public void readBook(String filename) throws FileNameDownloadExeption {
         presenter.readBook(filename);
     }
 

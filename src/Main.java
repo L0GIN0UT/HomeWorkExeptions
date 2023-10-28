@@ -9,7 +9,7 @@ public class Main {
             ConsoleUI console = new ConsoleUI();
             console.start();
         }catch (FamiliaExeption | NameExeption | DateExeption | OtchestvoExeption | PhoneNumberExeption |
-                ConsoleIndexExeption | ConsoleExeption | GenderExeption | FileNameExeption | FileNameUploadExeption e){
+                ConsoleIndexExeption | ConsoleExeption | GenderExeption | FileNameDownloadExeption | FileNameUploadExeption e){
             System.out.println(e.getMessage());
         }
     }

@@ -22,5 +22,5 @@ public abstract class Command {
         return consoleUI;
     }
 
-    public abstract void execute() throws DateExeption, FamiliaExeption, OtchestvoExeption, NameExeption, PhoneNumberExeption, GenderExeption, FileNameExeption, FileNameUploadExeption;
+    public abstract void execute() throws DateExeption, FamiliaExeption, OtchestvoExeption, NameExeption, PhoneNumberExeption, GenderExeption, FileNameDownloadExeption, FileNameUploadExeption;
 }

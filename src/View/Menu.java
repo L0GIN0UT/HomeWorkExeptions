@@ -13,8 +13,8 @@ public class Menu {
         commands = new ArrayList<>();
         commands.add(new AddPerson(consoleUI));
         commands.add(new GetPhoneBook(consoleUI));
-        commands.add(new DownloadPhoneBook(consoleUI));
         commands.add(new SavePhoneBook(consoleUI));
+        commands.add(new DownloadPhoneBook(consoleUI));
         commands.add(new Finish(consoleUI));
     }
     public String menu() {
@@ -30,7 +30,7 @@ public class Menu {
         return sb.toString();
     }
 
-    public void choise(int id) throws FamiliaExeption, OtchestvoExeption, DateExeption, NameExeption, PhoneNumberExeption, GenderExeption, FileNameExeption, FileNameUploadExeption {
+    public void choise(int id) throws FamiliaExeption, OtchestvoExeption, DateExeption, NameExeption, PhoneNumberExeption, GenderExeption, FileNameDownloadExeption, FileNameUploadExeption {
         try{
             Command c = commands.get(id - 1);
             c.execute();
