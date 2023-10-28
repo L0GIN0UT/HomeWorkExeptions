@@ -1,5 +1,7 @@
 package Model.fileHandler;
 
+import View.Checks.exeptions.FileNameExeption;
+
 import java.io.*;
 
 
@@ -15,11 +17,10 @@ public class FileHandler {
         }
     }
 
-    public Object read(String path){
+    public Object read(String path) throws FileNameExeption {
         try{ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path));
             return ois.readObject();
         } catch (Exception i){
-            i.printStackTrace();
             return null;
         }
     }

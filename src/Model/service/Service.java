@@ -2,6 +2,7 @@ package Model.service;
 
 import Model.builder.MyPersonBuilder;
 import Model.fileHandler.FileHandler;
+import View.Checks.exeptions.FileNameExeption;
 import View.Checks.exeptions.NameExeption;
 import Model.obj.Gender;
 import Model.obj.Person;
@@ -37,6 +38,11 @@ public class Service {
     public void saveBook(String filename) {
         FileHandler fh = new FileHandler();
         fh.save(phoneBook,filename + ".txt");
+    }
+
+    public void readBook(String filename) throws FileNameExeption {
+        FileHandler fh = new FileHandler();
+        phoneBook = (PhoneBook) fh.read(filename+".txt");
     }
 
 }

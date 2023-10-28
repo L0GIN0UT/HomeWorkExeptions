@@ -2,6 +2,7 @@ package Presenter;
 
 import Model.obj.Gender;
 import Model.service.Service;
+import View.Checks.exeptions.FileNameExeption;
 import View.ConsoleUI;
 
 import java.time.LocalDate;
@@ -27,6 +28,10 @@ public class Presenter {
 
     public void saveBook(String filename) {
         service.saveBook(filename);
+    }
+
+    public void readBook(String filename) throws FileNameExeption {
+        service.readBook(filename);
     }
 
 }

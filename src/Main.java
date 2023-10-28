@@ -9,10 +9,8 @@ public class Main {
             ConsoleUI console = new ConsoleUI();
             console.start();
         }catch (FamiliaExeption | NameExeption | DateExeption | OtchestvoExeption | PhoneNumberExeption |
-                ConsoleIndexExeption | ConsoleExeption | GenderExeption e){
+                ConsoleIndexExeption | ConsoleExeption | GenderExeption | FileNameExeption | FileNameUploadExeption e){
             System.out.println(e.getMessage());
-            System.out.println("Не удалось записать файл!");
-            System.out.println("Причина: Некорректные данные.");
         }
     }
 }

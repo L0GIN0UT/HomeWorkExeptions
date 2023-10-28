@@ -23,9 +23,9 @@ public class ConsoleUI implements View {
     }
 
     @Override
-    public void start() throws FamiliaExeption, OtchestvoExeption, DateExeption, NameExeption, PhoneNumberExeption, ConsoleExeption, GenderExeption {
+    public void start() throws FamiliaExeption, OtchestvoExeption, DateExeption, NameExeption, PhoneNumberExeption, ConsoleExeption, GenderExeption, FileNameExeption, FileNameUploadExeption {
         System.out.println("Hello: ");
-//        while (flag) {
+        while (flag) {
             System.out.println(menu.menu());
             String line = scanner.nextLine();
             try {
@@ -34,7 +34,7 @@ public class ConsoleUI implements View {
             } catch (NumberFormatException e) {
                 throw new ConsoleExeption("Вы ввели не число!");
             }
-//        }
+        }
     }
 
     public void finish() {
@@ -43,7 +43,8 @@ public class ConsoleUI implements View {
 
     public void addHuman() throws DateExeption, NameExeption, FamiliaExeption, OtchestvoExeption, PhoneNumberExeption, GenderExeption {
         System.out.println("Укажите Фамилию человека");
-        String familia1 = scanner.nextLine();String familia = checkFamilia(familia1);
+        String familia1 = scanner.nextLine();
+        String familia = checkFamilia(familia1);
         System.out.println("Укажите Имя человека");
         String name1 = scanner.nextLine();
         String name = checkName(name1);
@@ -60,7 +61,28 @@ public class ConsoleUI implements View {
         String gender1 = scanner.nextLine();
         Gender gender = checkGender(gender1);
         presenter.addPerson(familia,name,otchestvo,bornDate,phoneNumber,gender);
-        saveBook(familia+" "+name+" "+otchestvo+" "+bornDate+" "+phoneNumber);
+    }
+
+    public void downloadBook() throws FileNameExeption {
+        System.out.println("Укажите Имя файла");
+        String filename1 = scanner.nextLine();
+        String filename = checkFileName(filename1);
+        readBook(filename);
+    }
+
+    public void uploadBook() throws FileNameUploadExeption {
+        System.out.println("Укажите Имя файла");
+        String filename1 = scanner.nextLine();
+        String filename = checkFileNameUpload(filename1);
+        saveBook(filename);
+    }
+
+    private String checkFileNameUpload(String filename) throws FileNameUploadExeption {
+        return CheckFileNameUpload.checkFileName(filename);
+    }
+
+    private String checkFileName(String filename) throws FileNameExeption {
+        return CheckFileName.checkFileName(filename);
     }
 
     private String checkFamilia(String str) throws FamiliaExeption {
@@ -93,6 +115,10 @@ public class ConsoleUI implements View {
 
     public void saveBook(String filename) {
         presenter.saveBook(filename);
+    }
+
+    public void readBook(String filename) throws FileNameExeption {
+        presenter.readBook(filename);
     }
 
     @Override
